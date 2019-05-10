@@ -1,0 +1,11 @@
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCooking.exe.config
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCooking.exe
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCooking.pdb
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csprojAssemblyReference.cache
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.Properties.Resources.resources
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csproj.GenerateResource.cache
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csproj.CoreCompileInputs.cache
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.exe
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.pdb
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\bin\Debug\Microsoft.Web.Administration.dll
+C:\Users\Administrator.000\source\repos\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csproj.CopyComplete
