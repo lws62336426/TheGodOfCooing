@@ -1,5 +1,10 @@
 ﻿using Microsoft.Web.Administration;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TheGodOfCooking
@@ -9,56 +14,76 @@ namespace TheGodOfCooking
         public Form1()
         {
             InitializeComponent();
-            LoadSites();
+            LoadSites(cbFront, cbManagement, cbResrouce);
         }
 
-        public void LoadSites()
+        private void Button_MouseClick(object sender, EventArgs e)
+        {
+            string frontUrl = txtFront.Text;
+            string managementUrl = txtManagement.Text;
+            string resourceUrl = txtResource.Text;
+            string masterFrontUrl = txtMasterFront.Text;
+            string masterManagementUrl = txtMasterManagement.Text;
+            string frontFilepath = cbFront.SelectedValue + "\\bin\\Handan.Config.dll";
+            string managementFilepath = cbManagement.SelectedValue + "\\bin\\Handan.Config.dll";
+
+            CustomerConfig customerConfig = new CustomerConfig(frontFilepath, managementFilepath);
+            var config = customerConfig.LoadConfig();
+            if (!string.IsNullOrEmpty(frontUrl)) config.FrontUrl = frontUrl;
+            if (!string.IsNullOrEmpty(managementUrl)) config.AdminUrl = managementUrl;
+            if (!string.IsNullOrEmpty(resourceUrl)) config.ImageUrl = $"http://{resourceUrl}";
+            if (!string.IsNullOrEmpty(masterFrontUrl)) config.MasterFrontUrl = masterFrontUrl;
+            if (!string.IsNullOrEmpty(masterManagementUrl)) config.MasterAdminUrl = masterManagementUrl;
+            customerConfig.SaveConfig(config);
+            MessageBox.Show("Config文件已替换");
+
+            Dictionary<string, string> dicSiteUrl = new Dictionary<string, string>();
+            dicSiteUrl.Add(cbFront.Text, frontUrl);
+            dicSiteUrl.Add(cbManagement.Text, managementUrl);
+            dicSiteUrl.Add(cbResrouce.Text, resourceUrl);
+            BindUrl(dicSiteUrl);
+            MessageBox.Show("域名已添加");
+
+        }
+
+        public void LoadSites(params ComboBox[] comboBox)
         {
             using (ServerManager sm = ServerManager.OpenRemote("127.0.0.1"))
             {
-                Control[] controls = new Control[sm.Sites.Count];
-                foreach (var site in sm.Sites)
+                //同一数据源会触发同一个选择事件
+                //var list= (from site in sm.Sites select new { site.Id, site.Name }).ToList();
+                foreach (var cb in comboBox)
                 {
-                    Button button = new Button();
-                    button.Name = "btn" + site.Name;
-                    button.Text = site.Name;                    
-                    button.Location = new Point(16, ((int)(site.Id-1) * 35) + 10);
-                    button.MouseClick += Button_MouseClick;
-                    Controls.Add(button);
-
-                    TextBox textFront = new TextBox();
-                    textFront.Name = "txt" + site.Name + "FrontUrl";
-                    textFront.Location = new Point(128, ((int)(site.Id - 1) * 35) + 10);
-                    Controls.Add(textFront);
-
-                    TextBox textManagement = new TextBox();
-                    textManagement.Name = "btxttn" + site.Name + "ManagementUrl";
-                    textManagement.Location = new Point(256, ((int)(site.Id - 1) * 35) + 10);
-                    Controls.Add(textManagement);
-
-                    TextBox textResource = new TextBox();
-                    textResource.Name = "txt" + site.Name + "ResourceUrl";
-                    textResource.Location = new Point(384, ((int)(site.Id - 1) * 35) + 10);
-                    Controls.Add(textResource);
-
-                    Label label = new Label();
-                    label.Name = "lbl" + site.Name;
-                    label.Text = site.Applications[0].VirtualDirectories[0].PhysicalPath;
-                    label.Location = new Point(512, ((int)(site.Id - 1) * 35) + 10);
-                    label.Visible = false;
-                    Controls.Add(label);
+                    cb.DataSource = (from site in sm.Sites select new { site.Applications[0].VirtualDirectories[0].PhysicalPath, site.Name }).ToList();
+                    cb.ValueMember = "PhysicalPath";
+                    cb.DisplayMember = "Name";
                 }
             }
         }
 
-        private void Button_MouseClick(object sender, MouseEventArgs e)
+        public void BindUrl(string sitename, string url)
         {
-            Button button = (Button)sender;
-            string sitename = button.Text;
-            string frontUrl = Controls["txt" + sitename + "FrontUrl"].Text;
-            string managementUrl = Controls["txt" + sitename + "ManagementUrl"].Text;
-            string resourceUrl = Controls["txt" + sitename + "Resource"].Text;
-            string filepath = Controls["lbl" + sitename].Text+"\\bin\\Handan.Config.dll";
+            using (ServerManager sm = ServerManager.OpenRemote("127.0.0.1"))
+            {
+                string str = sm.Sites[sitename].Bindings[0].Host.Split(new char[] { ',' })[0];
+                string bindingInformation = "*:80:" + str + "." + url;
+                sm.Sites[sitename].Bindings.Add(bindingInformation, "http");
+                sm.CommitChanges();
+            }
+        }
+
+        public void BindUrl(IDictionary<string, string> dicSiteUrl)
+        {
+            using (ServerManager sm = ServerManager.OpenRemote("127.0.0.1"))
+            {
+                foreach (var info in dicSiteUrl)
+                {
+                    string str = sm.Sites[info.Key].Bindings[0].Host.Split(new char[] { ',' })[0];
+                    string bindingInformation = "*:80:" + info.Value;
+                    sm.Sites[info.Key].Bindings.Add(bindingInformation, "http");
+                }
+                sm.CommitChanges();
+            }
         }
     }
 }
