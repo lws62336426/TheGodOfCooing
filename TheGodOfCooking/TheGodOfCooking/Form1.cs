@@ -58,6 +58,11 @@ namespace TheGodOfCooking
                     cb.ValueMember = "PhysicalPath";
                     cb.DisplayMember = "Name";
                 }
+
+                for (int i = 0; i < comboBox.Length; i++)
+                {
+                    comboBox[i].SelectedIndex = i;
+                }
             }
         }
 

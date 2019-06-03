@@ -59,7 +59,6 @@
             this.txtFront.Name = "txtFront";
             this.txtFront.Size = new System.Drawing.Size(150, 21);
             this.txtFront.TabIndex = 1;
-            this.txtFront.Text = "www.baidu.com";
             // 
             // txtManagement
             // 
@@ -67,7 +66,6 @@
             this.txtManagement.Name = "txtManagement";
             this.txtManagement.Size = new System.Drawing.Size(150, 21);
             this.txtManagement.TabIndex = 3;
-            this.txtManagement.Text = "www.baidu.com";
             // 
             // lblManagement
             // 
@@ -84,7 +82,6 @@
             this.txtResource.Name = "txtResource";
             this.txtResource.Size = new System.Drawing.Size(150, 21);
             this.txtResource.TabIndex = 5;
-            this.txtResource.Text = "www.baidu.com";
             // 
             // lblResource
             // 
@@ -134,7 +131,6 @@
             this.txtMasterFront.Name = "txtMasterFront";
             this.txtMasterFront.Size = new System.Drawing.Size(150, 21);
             this.txtMasterFront.TabIndex = 14;
-            this.txtMasterFront.Text = "www.baidu.com";
             // 
             // label1
             // 
@@ -151,7 +147,6 @@
             this.txtMasterManagement.Name = "txtMasterManagement";
             this.txtMasterManagement.Size = new System.Drawing.Size(150, 21);
             this.txtMasterManagement.TabIndex = 12;
-            this.txtMasterManagement.Text = "www.baidu.com";
             // 
             // label2
             // 
