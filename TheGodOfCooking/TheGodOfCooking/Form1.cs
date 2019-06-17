@@ -83,9 +83,15 @@ namespace TheGodOfCooking
             {
                 foreach (var info in dicSiteUrl)
                 {
-                    string str = sm.Sites[info.Key].Bindings[0].Host.Split(new char[] { ',' })[0];
+                    var allUrl = new List<string>();
+                    foreach (var site in sm.Sites[info.Key].Bindings)
+                    {
+                        string str = site.Host.Split(new char[] { ',' })[0];
+                        allUrl.Add(str);
+                    }
                     string bindingInformation = "*:80:" + info.Value;
-                    sm.Sites[info.Key].Bindings.Add(bindingInformation, "http");
+                    if (!allUrl.Contains(info.Value) && !string.IsNullOrEmpty(info.Value))
+                        sm.Sites[info.Key].Bindings.Add(bindingInformation, "http");
                 }
                 sm.CommitChanges();
             }
