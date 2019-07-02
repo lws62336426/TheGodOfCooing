@@ -13,7 +13,6 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCook
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCooking.exe
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\TheGodOfCooking.pdb
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\Microsoft.Web.Administration.dll
-F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csprojAssemblyReference.cache
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.Properties.Resources.resources
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csproj.GenerateResource.cache
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csproj.CoreCompileInputs.cache

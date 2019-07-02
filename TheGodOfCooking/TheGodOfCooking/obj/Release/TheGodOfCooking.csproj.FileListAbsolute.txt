@@ -11,3 +11,5 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCo
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.csproj.CopyComplete
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.exe
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.pdb
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.dll
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.xml
