@@ -22,3 +22,6 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCook
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\Newtonsoft.Json.dll
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\Newtonsoft.Json.xml
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.Form1.resources
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\StackExchange.Redis.dll
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\StackExchange.Redis.xml
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csprojAssemblyReference.cache

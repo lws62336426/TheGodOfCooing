@@ -3,7 +3,9 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\TheGodOfCo
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\TheGodOfCooking.pdb
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\Microsoft.Web.Administration.dll
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\Newtonsoft.Json.dll
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.dll
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\Newtonsoft.Json.xml
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.xml
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.Form1.resources
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.Properties.Resources.resources
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.csproj.GenerateResource.cache
@@ -11,5 +13,3 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCo
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.csproj.CopyComplete
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.exe
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Release\TheGodOfCooking.pdb
-F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.dll
-F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Release\StackExchange.Redis.xml

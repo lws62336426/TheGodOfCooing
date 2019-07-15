@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,31 +11,6 @@ namespace TheGodOfCooking
 {
     public class CustomerConfig
     {
-        /// <summary>
-        /// 客户Guid
-        /// </summary>
-        public string Guid { get; set; }
-
-        /// <summary>
-        /// 注册人数
-        /// </summary>
-        public int RegisterNum { get; set; }
-
-        /// <summary>
-        /// 在线人数
-        /// </summary>
-        public int OnlineNum { get; set; }
-
-        /// <summary>
-        /// 管理人数
-        /// </summary>
-        public int ManagerNum { get; set; }
-
-        /// <summary>
-        /// 机器人数
-        /// </summary>
-        public int RobotNum { get; set; }
-
         /// <summary>
         /// 前台域名
         /// </summary>
@@ -51,16 +27,6 @@ namespace TheGodOfCooking
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// 客户短信GUID
-        /// </summary>
-        public string SMSGuid { get; set; }
-
-        /// <summary>
-        /// 客户短信标识
-        /// </summary>
-        public string SMSCode { get; set; }
-
-        /// <summary>
         /// 主房间前台地址
         /// </summary>
         public string MasterFrontUrl { get; set; }
@@ -70,26 +36,10 @@ namespace TheGodOfCooking
         /// </summary>
         public string MasterAdminUrl { get; set; }
 
-        private string FrontFilepath { get; set; }
-        private string ManagementFilepath { get; set; }
-
-        public CustomerConfig(string frontFilepath,string managementFilepath)
+        public JObject LoadConfig(string path)
         {
-            FrontFilepath = frontFilepath;
-            ManagementFilepath = managementFilepath;
-        }
-
-        public CustomerConfig LoadConfig()
-        {
-            var content = File.ReadAllText(FrontFilepath);
-            return JsonConvert.DeserializeObject<CustomerConfig>(content);
-        }
-
-        public void SaveConfig(CustomerConfig config)
-        {
-            string content = JsonConvert.SerializeObject(config);
-            File.WriteAllText(FrontFilepath, content);
-            File.WriteAllText(ManagementFilepath, content);
+            string jsonStr = System.IO.File.ReadAllText(path);
+            return  JsonConvert.DeserializeObject<JObject>(jsonStr);
         }
     }
 }

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -28,18 +29,9 @@ namespace TheGodOfCooking
             string resourceUrl = txtResource.Text;
             string masterFrontUrl = txtMasterFront.Text;
             string masterManagementUrl = txtMasterManagement.Text;
-            string frontFilepath = cbFront.SelectedValue + "\\bin\\Handan.Config.dll";
-            string managementFilepath = cbManagement.SelectedValue + "\\bin\\Handan.Config.dll";
-
-            CustomerConfig customerConfig = new CustomerConfig(frontFilepath, managementFilepath);
-            var config = customerConfig.LoadConfig();
-            if (!string.IsNullOrEmpty(frontUrl)) config.FrontUrl = frontUrl;
-            if (!string.IsNullOrEmpty(managementUrl)) config.AdminUrl = managementUrl;
-            if (!string.IsNullOrEmpty(resourceUrl)) config.ImageUrl = $"http://{resourceUrl}";
-            if (!string.IsNullOrEmpty(masterFrontUrl)) config.MasterFrontUrl = masterFrontUrl;
-            if (!string.IsNullOrEmpty(masterManagementUrl)) config.MasterAdminUrl = masterManagementUrl;
-            customerConfig.SaveConfig(config);
-            MessageBox.Show("Config文件已替换");
+            string configFilePath = "C:\\config\\all.json";
+            string serverPath = cbFront.SelectedValue.ToString();
+            string serverId = GetServerId(serverPath);
 
             Dictionary<string, string> dicSiteUrl = new Dictionary<string, string>
             {
@@ -199,6 +191,17 @@ namespace TheGodOfCooking
             {
                 db.KeyDelete(key);
             }
+        }
+
+        private string GetServerId(string serverPath)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(serverPath.Replace("\\", "/") + "/web.config");
+            XmlNode xNode;
+            XmlElement xElem;
+            xNode = xDoc.SelectSingleNode("//appSettings");
+            xElem = (XmlElement)xNode.SelectSingleNode("//add[@key='ServerId']");
+            return xElem.GetAttribute("value");
         }
     }
 }
