@@ -145,7 +145,7 @@ namespace TheGodOfCooking
         private void LstSites_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var lstSites = (ListBox)sender;
-            var commonPath = txt_Position.Text.Substring(txt_Position.Text.LastIndexOf("\\"));
+            var commonPath = txt_Position.Text.Substring(txt_Position.Text.LastIndexOf("\\"))== "\\bin"? "\\bin":"";
             var appendPath = "\r\n" + lstSites.SelectedValue + commonPath;
 
             if (txt_Position.Text.Contains(appendPath))
