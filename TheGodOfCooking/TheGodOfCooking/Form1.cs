@@ -29,9 +29,18 @@ namespace TheGodOfCooking
             string resourceUrl = txtResource.Text;
             string masterFrontUrl = txtMasterFront.Text;
             string masterManagementUrl = txtMasterManagement.Text;
-            string configFilePath = "C:\\config\\all.json";
+            string configFilePath = "C:\\config\\08.json";
             string serverPath = cbFront.SelectedValue.ToString();
             string serverId = GetServerId(serverPath);
+
+            CustomerConfig customerConfig = new CustomerConfig();
+            var config = customerConfig.LoadConfig(configFilePath);
+
+            if (string.IsNullOrEmpty(masterFrontUrl)) config["config"]["Common"]["MasterFrontUrl"] = masterFrontUrl;
+            if (string.IsNullOrEmpty(masterManagementUrl)) config["config"]["Common"]["MasterAdminUrl"] = masterManagementUrl;
+            if (string.IsNullOrEmpty(resourceUrl)) config["config"]["Common"]["ImageUrl"] = resourceUrl;
+            if (string.IsNullOrEmpty(frontUrl)) config["config"]["ServerId_" + serverId]["FrontUrl"] = frontUrl;
+            if (string.IsNullOrEmpty(managementUrl)) config["config"]["ServerId_" + serverId]["AdminUrl"] = managementUrl;
 
             Dictionary<string, string> dicSiteUrl = new Dictionary<string, string>
             {
@@ -41,6 +50,9 @@ namespace TheGodOfCooking
             };
             BindUrl(dicSiteUrl);
             MessageBox.Show("域名已添加");
+
+            customerConfig.SaveConfig(configFilePath, config);
+            MessageBox.Show("配置文件已替换");
         }
 
         public void LoadSites(params ComboBox[] comboBox)

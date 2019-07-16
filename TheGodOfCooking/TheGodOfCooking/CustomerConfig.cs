@@ -11,35 +11,31 @@ namespace TheGodOfCooking
 {
     public class CustomerConfig
     {
-        /// <summary>
-        /// 前台域名
-        /// </summary>
-        public string FrontUrl { get; set; }
-
-        /// <summary>
-        /// 后台域名
-        /// </summary>
-        public string AdminUrl { get; set; }
-
-        /// <summary>
-        /// 图片域名
-        /// </summary>
-        public string ImageUrl { get; set; }
-
-        /// <summary>
-        /// 主房间前台地址
-        /// </summary>
+        public string Guid { get; set; }
+        public string RegisterNum { get; set; }
+        public string OnlineNum { get; set; }
+        public string SMSGuid { get; set; }
+        public string SMSCode { get; set; }
         public string MasterFrontUrl { get; set; }
-
-        /// <summary>
-        /// 主房间后台地址
-        /// </summary>
         public string MasterAdminUrl { get; set; }
+        public string ImageUrl { get; set; }
 
         public JObject LoadConfig(string path)
         {
-            string jsonStr = System.IO.File.ReadAllText(path);
-            return  JsonConvert.DeserializeObject<JObject>(jsonStr);
+            string jsonStr = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<JObject>(jsonStr);
         }
+
+        public void SaveConfig(string path,JObject jObject)
+        {
+            string content = JsonConvert.SerializeObject(jObject);
+            File.WriteAllText(path, content);
+        }
+    }
+
+    public class ServerConfig
+    {
+        public string FrontUrl { get; set; }
+        public string AdminUrl { get; set; }
     }
 }
