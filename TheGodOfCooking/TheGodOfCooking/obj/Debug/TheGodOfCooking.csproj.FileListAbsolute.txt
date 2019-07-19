@@ -24,3 +24,4 @@ F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\Newtonsoft.J
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.Form1.resources
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\StackExchange.Redis.dll
 F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\bin\Debug\StackExchange.Redis.xml
+F:\Pratice\TheGodOfCooing\TheGodOfCooking\TheGodOfCooking\obj\Debug\TheGodOfCooking.csprojAssemblyReference.cache
